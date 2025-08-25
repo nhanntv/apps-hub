@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Schedule Management - Quản lý lịch học thông minh</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        .app-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .app-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .app-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .download-section {
+            background: #f7fafc;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .store-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: black;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        
+        .store-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .store-btn.google-play {
+            background: #01875f;
+        }
+        
+        .screenshots {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            height: 400px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            z-index: 100;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-2px);
+        }
+    </style>
+</head>
+<body>
+    <a href="../" class="back-btn">
+        <span>←</span> Quay lại
+    </a>
+    
+    <div class="app-hero">
+        <h1>📚 Class Schedule Management</h1>
+        <p>Giải pháp toàn diện cho việc quản lý lịch học và thành viên lớp học</p>
+    </div>
+    
+    <section class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3>Quản lý thành viên</h3>
+            <p>Dễ dàng thêm, sửa, xóa và quản lý thông tin học viên</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">📅</div>
+            <h3>Lịch học thông minh</h3>
+            <p>Xem lịch học theo ngày, tuần, tháng với giao diện trực quan</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">✅</div>
+            <h3>Điểm danh nhanh</h3>
+            <p>Điểm danh bằng một chạm, tự động thống kê tỷ lệ tham gia</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Thống kê chi tiết</h3>
+            <p>Báo cáo tỷ lệ điểm danh, tiến độ học tập với biểu đồ trực quan</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">☁️</div>
+            <h3>Đồng bộ đám mây</h3>
+            <p>Tự động sao lưu và đồng bộ dữ liệu trên nhiều thiết bị</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🔔</div>
+            <h3>Thông báo thông minh</h3>
+            <p>Nhắc nhở lịch học, điểm danh và các sự kiện quan trọng</p>
+        </div>
+    </section>
+    
+    <section class="download-section">
+        <h2>Tải ứng dụng ngay hôm nay</h2>
+        <p>Có sẵn trên iOS và Android</p>
+        <div class="store-buttons">
+            <a href="#" class="store-btn">
+                <span>🍎</span>
+                <div>
+                    <small>Download on the</small>
+                    <div>App Store</div>
+                </div>
+            </a>
+            <a href="#" class="store-btn google-play">
+                <span>▶️</span>
+                <div>
+                    <small>Get it on</small>
+                    <div>Google Play</div>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    <section class="screenshots">
+        <h2>Giao diện ứng dụng</h2>
+        <div class="screenshot-grid">
+            <div class="screenshot-placeholder">Screenshot 1</div>
+            <div class="screenshot-placeholder">Screenshot 2</div>
+            <div class="screenshot-placeholder">Screenshot 3</div>
+            <div class="screenshot-placeholder">Screenshot 4</div>
+        </div>
+    </section>
+    
+    <footer style="background: #1a202c; color: white; padding: 2rem; text-align: center;">
+        <div style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem;">
+            <a href="legal/" style="color: white; text-decoration: none;">📋 Legal Documents (Multi-language)</a>
+            <a href="legal/vi/terms.html" style="color: white; text-decoration: none;">Điều khoản (VN)</a>
+            <a href="legal/vi/privacy.html" style="color: white; text-decoration: none;">Bảo mật (VN)</a>
+            <a href="docs/faq.html" style="color: white; text-decoration: none;">FAQ</a>
+        </div>
+        <p>&copy; 2025 Nhan Trinh. All rights reserved.</p>
+    </footer>
+</body>
+</html>
