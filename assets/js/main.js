@@ -1,32 +1,36 @@
-// Tab filtering functionality
+// Filter functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
+    const filterBtns = document.querySelectorAll('.filter-btn');
     const appCards = document.querySelectorAll('.app-card');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Update active tab
-            tabButtons.forEach(btn => btn.classList.remove('active'));
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
             this.classList.add('active');
-            
+
+            const filter = this.getAttribute('data-filter');
+
             // Filter cards
-            const selectedTab = this.getAttribute('data-tab');
-            
             appCards.forEach(card => {
-                if (selectedTab === 'all') {
+                if (filter === 'all') {
+                    card.classList.remove('hidden');
                     card.style.display = 'flex';
                 } else {
-                    const category = card.getAttribute('data-category');
-                    if (category === selectedTab) {
+                    const categories = card.getAttribute('data-category').split(' ');
+                    if (categories.includes(filter)) {
+                        card.classList.remove('hidden');
                         card.style.display = 'flex';
                     } else {
+                        card.classList.add('hidden');
                         card.style.display = 'none';
                     }
                 }
             });
         });
     });
-    
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -40,13 +44,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
     // Add animation on scroll
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -55,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-    
-    // Observe all app cards
+
+    // Observe all app cards with initial animation state
     appCards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
