@@ -1,0 +1,63 @@
+{
+  "app_config": {
+    "maintenance": {
+      "enabled": false,
+      "message": {
+        "en": "We're currently performing maintenance. Please try again later.",
+        "vi": "Hệ thống đang bảo trì. Vui lòng thử lại sau."
+      }
+    },
+    
+    "version_control": {
+      "minimum_version": {
+        "ios": "1.0.0",
+        "android": "1.0.0"
+      },
+      "latest_version": {
+        "ios": "1.0.0",
+        "android": "1.0.0"
+      },
+      "force_update": {
+        "enabled": false,
+        "ios_below_version": "0.9.0",
+        "android_below_version": "0.9.0"
+      },
+      "optional_update": {
+        "enabled": false,
+        "message": {
+          "en": "A new version is available. Update for the best experience!",
+          "vi": "Đã có phiên bản mới. Cập nhật để có trải nghiệm tốt nhất!"
+        }
+      },
+      "store_urls": {
+        "ios": "https://apps.apple.com/app/idXXXXXXXXX",
+        "android": "https://play.google.com/store/apps/details?id=com.nhanntv.class_schedule_management"
+      }
+    },
+    
+    "legal_documents": {
+      "base_url": "https://nhanntv.github.io/apps-hub/class-schedule-management/legal",
+      "fallback_to_local": true
+    },
+    
+    "features": {
+      "ads": {
+        "enabled": true,
+        "interstitial_frequency": 3
+      },
+      "cloud_sync": {
+        "enabled": true,
+        "auto_sync": true
+      }
+    },
+    
+    "support": {
+      "email": "nhanntv113@gmail.com"
+    }
+  },
+  
+  "meta": {
+    "version": "1.0.0",
+    "last_updated": "2025-08-25T00:00:00Z"
+  }
+}
