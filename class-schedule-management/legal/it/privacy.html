@@ -24,14 +24,35 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>Informativa sulla Privacy</h1>
-    <p class="last-updated">Ultimo aggiornamento: Ottobre 2025</p>
+    <p class="last-updated">Efficace dal: Febbraio 2026</p>
 
     <div class="highlight">
         <strong>Informativa sulla Privacy dell'App Gestione Orario Lezioni</strong><br>
@@ -151,15 +172,43 @@
     </ul>
 
     <h2>10. Conformità Regionale</h2>
-    
+
     <h3>Per gli Utenti del Vietnam</h3>
-    <p>Questa politica è conforme al Decreto 13/2023/ND-CP sulla protezione dei dati personali.</p>
+    <p>Questa politica è conforme alla Legge sulla Protezione dei Dati Personali n. 91/2025/QH15, in vigore dal 1° gennaio 2026, e al Decreto 13/2023/ND-CP sulla protezione dei dati personali.</p>
+    <p>I tuoi diritti includono:</p>
+    <ul>
+        <li>Consenso separato per ciascuna finalità di trattamento dei dati (consenso granulare)</li>
+        <li>Diritto di revocare il consenso in qualsiasi momento</li>
+        <li>Diritto di rifiutare il tracciamento (Do Not Track)</li>
+        <li>Notifica entro 72 ore in caso di violazione dei dati</li>
+    </ul>
 
     <h3>Per gli Utenti dell'UE</h3>
     <p>Questa politica è conforme al GDPR. Hai diritti aggiuntivi ai sensi degli Articoli 15-22 del GDPR.</p>
 
     <h3>Per gli Utenti della California</h3>
     <p>Questa politica è conforme al CCPA. Hai diritti aggiuntivi ai sensi del California Consumer Privacy Act.</p>
+
+    <h3>Per gli Utenti della Corea del Sud</h3>
+    <p>Questa politica è conforme al PIPA (Personal Information Protection Act). A partire da marzo 2025, hai il diritto di richiedere la portabilità dei dati in formato sicuro e leggibile automaticamente.</p>
+
+    <h3>Per gli Utenti della Malaysia</h3>
+    <p>Questa politica è conforme al PDPA (Personal Data Protection Act). Abbiamo nominato un Responsabile della Protezione dei Dati e ti notificheremo entro 72 ore in caso di violazione dei dati che ti riguarda.</p>
+
+    <h3>Per gli Utenti della Thailandia</h3>
+    <p>Questa politica è conforme al PDPA (Personal Data Protection Act). Hai il diritto di accedere, rettificare, cancellare, opporti al trattamento, limitare il trattamento e trasferire i tuoi dati.</p>
+
+    <h3>Per gli Utenti dell'Indonesia</h3>
+    <p>Questa politica è conforme all'UU PDP (Legge sulla Protezione dei Dati Personali). Hai il diritto di accedere, rettificare e cancellare i tuoi dati personali.</p>
+
+    <h3>Per gli Utenti del Giappone</h3>
+    <p>Questa politica è conforme all'APPI (Act on the Protection of Personal Information). Richiediamo il tuo consenso esplicito prima di posizionare cookie non essenziali.</p>
+
+    <h3>Per gli Utenti della Cina</h3>
+    <p>Questa politica è conforme al PIPL (Personal Information Protection Law). I trasferimenti transfrontalieri di dati rispettano le Misure di Certificazione per il Trasferimento Transfrontaliero di Informazioni Personali, in vigore dal 1° gennaio 2026.</p>
+
+    <h3>Per gli Utenti della Russia</h3>
+    <p>Questa politica è conforme alla Legge Federale 152-FZ. I dati personali dei cittadini russi sono archiviati su server in Russia. Il consenso al trattamento dei dati viene ottenuto separatamente.</p>
 
     <h2>11. Aggiornamenti a Questa Politica</h2>
     <p>Potremmo aggiornare questa politica sulla privacy. L'uso continuato dell'app indica l'accettazione delle modifiche.</p>
@@ -172,7 +221,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 App Gestione Orario Lezioni. Tutti i diritti riservati.
+        © <span class="copyright-year">2026</span> App Gestione Orario Lezioni. Tutti i diritti riservati.
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

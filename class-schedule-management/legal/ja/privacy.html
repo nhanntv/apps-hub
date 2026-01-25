@@ -25,15 +25,35 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .warning { background-color: #3e2723; border-left-color: #ff9800; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>プライバシーポリシー</h1>
-    <p class="last-updated">最終更新：2025年10月</p>
+    <p class="last-updated">発効日：2026年2月</p>
 
     <div class="highlight">
         <strong>授業スケジュール管理アプリプライバシーポリシー</strong><br>
@@ -153,15 +173,43 @@
     </ul>
 
     <h2>10. 地域コンプライアンス</h2>
-    
+
     <h3>ベトナムユーザー向け</h3>
-    <p>このポリシーは個人データ保護に関するDecree 13/2023/ND-CPに準拠しています。</p>
+    <p>本ポリシーは、2026年1月1日施行の個人データ保護法第91/2025/QH15号および個人データ保護に関する政令第13/2023/ND-CPに準拠しています。</p>
+    <p>お客様の権利には以下が含まれます：</p>
+    <ul>
+        <li>各データ処理目的ごとに個別の同意（詳細な同意）</li>
+        <li>いつでも同意を撤回する権利</li>
+        <li>追跡を拒否する権利（Do Not Track）</li>
+        <li>データ侵害の場合72時間以内の通知</li>
+    </ul>
 
     <h3>EUユーザー向け</h3>
     <p>このポリシーはGDPRに準拠しています。GDPRの第15-22条の下で追加の権利があります。</p>
 
     <h3>カリフォルニアユーザー向け</h3>
     <p>このポリシーはCCPAに準拠しています。カリフォルニア州消費者プライバシー法の下で追加の権利があります。</p>
+
+    <h3>韓国ユーザー向け</h3>
+    <p>本ポリシーはPIPA（個人情報保護法）に準拠しています。2025年3月より、安全な機械可読形式でのデータポータビリティを要求する権利があります。</p>
+
+    <h3>マレーシアユーザー向け</h3>
+    <p>本ポリシーはPDPA（個人データ保護法）に準拠しています。当社はデータ保護責任者を任命しており、お客様に影響するデータ侵害の場合、72時間以内に通知いたします。</p>
+
+    <h3>タイユーザー向け</h3>
+    <p>本ポリシーはPDPA（個人データ保護法）に準拠しています。お客様には、アクセス、修正、削除、処理への異議申し立て、処理の制限、およびデータの移植の権利があります。</p>
+
+    <h3>インドネシアユーザー向け</h3>
+    <p>本ポリシーはUU PDP（個人データ保護法）に準拠しています。お客様には、個人データへのアクセス、修正、および削除の権利があります。</p>
+
+    <h3>日本ユーザー向け</h3>
+    <p>本ポリシーはAPPI（個人情報保護法）に準拠しています。必須でないCookieを配置する前に、お客様の明示的な同意を必要とします。</p>
+
+    <h3>中国ユーザー向け</h3>
+    <p>本ポリシーはPIPL（個人情報保護法）に準拠しています。国境を越えるデータ転送は、2026年1月1日施行の個人情報の国境を越える転送の認証措置に準拠しています。</p>
+
+    <h3>ロシアユーザー向け</h3>
+    <p>本ポリシーは連邦法152-FZに準拠しています。ロシア国民の個人データはロシア国内のサーバーに保存されます。データ処理の同意は個別に取得されます。</p>
 
     <h2>11. このポリシーの更新</h2>
     <p>このプライバシーポリシーを更新する場合があります。アプリの継続使用は変更の受け入れを示します。</p>
@@ -174,7 +222,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 授業スケジュール管理アプリ. 全権利保有。
+        © <span class="copyright-year">2026</span> 授業スケジュール管理アプリ. 全権利保有。
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

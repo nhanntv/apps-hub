@@ -25,15 +25,44 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .warning { background-color: #3e2723; border-left-color: #ff9800; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>Điều Khoản và Điều Kiện</h1>
-    <p class="last-updated">Cập nhật lần cuối: Tháng 10, 2025</p>
+    <p class="last-updated">Có hiệu lực từ: Tháng 2, 2026</p>
 
     <div class="highlight">
         <strong>Điều Khoản Dịch Vụ Ứng Dụng Quản Lý Lịch Học</strong><br>
@@ -144,7 +173,7 @@
     <ul>
         <li>Quyền riêng tư của bạn rất quan trọng đối với chúng tôi</li>
         <li>Vui lòng xem Chính sách Bảo mật để biết thông tin chi tiết</li>
-        <li>Chúng tôi tuân thủ các luật bảo vệ dữ liệu áp dụng (GDPR, CCPA, Nghị định 13/2023 của Việt Nam)</li>
+        <li>Chúng tôi tuân thủ các luật bảo vệ dữ liệu áp dụng (GDPR, CCPA, Luật Bảo vệ Dữ liệu Cá nhân 91/2025 và Nghị định 13/2023 của Việt Nam)</li>
         <li>Bạn đồng ý với việc xử lý dữ liệu như được mô tả trong Chính sách Bảo mật</li>
     </ul>
 
@@ -217,6 +246,7 @@
     <ul>
         <li>Bộ luật Dân sự 2015</li>
         <li>Luật Bảo vệ Người tiêu dùng 2010</li>
+        <li>Luật Bảo vệ Dữ liệu Cá nhân số 91/2025/QH15 (có hiệu lực từ 01/01/2026)</li>
         <li>Nghị định 13/2023/NĐ-CP về Bảo vệ Dữ liệu Cá nhân</li>
     </ul>
 
@@ -254,7 +284,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 Ứng Dụng Quản Lý Lịch Học. Tất cả quyền được bảo lưu.
+        © <span class="copyright-year">2026</span> Ứng Dụng Quản Lý Lịch Học. Tất cả quyền được bảo lưu.
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

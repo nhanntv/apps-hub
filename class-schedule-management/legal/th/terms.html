@@ -25,15 +25,44 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .warning { background-color: #3e2723; border-left-color: #ff9800; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>ข้อกำหนดและเงื่อนไข</h1>
-    <p class="last-updated">อัปเดตล่าสุด: ตุลาคม 2568</p>
+    <p class="last-updated">มีผลบังคับใช้ตั้งแต่: กุมภาพันธ์ 2569</p>
 
     <div class="highlight">
         <strong>ข้อกำหนดการให้บริการแอปพลิเคชันจัดการตารางเรียน</strong><br>
@@ -144,7 +173,7 @@
     <ul>
         <li>ความเป็นส่วนตัวของคุณสำคัญสำหรับเรา</li>
         <li>โปรดดูนโยบายความเป็นส่วนตัวของเราสำหรับข้อมูลโดยละเอียด</li>
-        <li>เราปฏิบัติตามกฎหมายคุ้มครองข้อมูลที่บังคับใช้ (GDPR, CCPA, พระราชกฤษฎีกาเวียดนาม 13/2023)</li>
+        <li>เราปฏิบัติตามกฎหมายคุ้มครองข้อมูลที่บังคับใช้ (GDPR, CCPA, พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคลเวียดนาม 91/2025 และพระราชกฤษฎีกา 13/2023)</li>
         <li>คุณยินยอมให้ประมวลผลข้อมูลตามที่อธิบายในนโยบายความเป็นส่วนตัวของเรา</li>
     </ul>
 
@@ -254,7 +283,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 แอปพลิเคชันจัดการตารางเรียน สงวนลิขสิทธิ์
+        © <span class="copyright-year">2026</span> แอปพลิเคชันจัดการตารางเรียน สงวนลิขสิทธิ์
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

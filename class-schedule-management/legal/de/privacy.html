@@ -24,14 +24,35 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>Datenschutzerklärung</h1>
-    <p class="last-updated">Zuletzt aktualisiert: Oktober 2025</p>
+    <p class="last-updated">Wirksam ab: Februar 2026</p>
 
     <div class="highlight">
         <strong>Datenschutzerklärung für die Stundenplan-Verwaltungs-App</strong><br>
@@ -151,15 +172,43 @@
     </ul>
 
     <h2>10. Regionale Compliance</h2>
-    
+
     <h3>Für Nutzer in Vietnam</h3>
-    <p>Diese Richtlinie entspricht dem Dekret 13/2023/ND-CP zum Schutz personenbezogener Daten.</p>
+    <p>Diese Richtlinie entspricht dem Datenschutzgesetz Nr. 91/2025/QH15, das am 1. Januar 2026 in Kraft tritt, sowie dem Dekret 13/2023/ND-CP zum Schutz personenbezogener Daten.</p>
+    <p>Ihre Rechte umfassen:</p>
+    <ul>
+        <li>Separate Einwilligung für jeden Datenverarbeitungszweck (granulare Einwilligung)</li>
+        <li>Recht auf Widerruf der Einwilligung jederzeit</li>
+        <li>Recht auf Opt-out aus Tracking (Do Not Track)</li>
+        <li>Benachrichtigung innerhalb von 72 Stunden bei Datenschutzverletzungen</li>
+    </ul>
 
     <h3>Für EU-Nutzer</h3>
     <p>Diese Richtlinie entspricht der DSGVO. Sie haben zusätzliche Rechte gemäß Artikel 15-22 der DSGVO.</p>
 
     <h3>Für Nutzer in Kalifornien</h3>
     <p>Diese Richtlinie entspricht dem CCPA. Sie haben zusätzliche Rechte gemäß dem California Consumer Privacy Act.</p>
+
+    <h3>Für Nutzer in Südkorea</h3>
+    <p>Diese Richtlinie entspricht dem PIPA (Personal Information Protection Act). Seit März 2025 haben Sie das Recht, Datenübertragbarkeit in einem sicheren, maschinenlesbaren Format anzufordern.</p>
+
+    <h3>Für Nutzer in Malaysia</h3>
+    <p>Diese Richtlinie entspricht dem PDPA (Personal Data Protection Act). Wir haben einen Datenschutzbeauftragten ernannt und werden Sie innerhalb von 72 Stunden im Falle einer Sie betreffenden Datenschutzverletzung benachrichtigen.</p>
+
+    <h3>Für Nutzer in Thailand</h3>
+    <p>Diese Richtlinie entspricht dem PDPA (Personal Data Protection Act). Sie haben das Recht auf Zugang, Berichtigung, Löschung, Widerspruch gegen die Verarbeitung, Einschränkung der Verarbeitung und Übertragung Ihrer Daten.</p>
+
+    <h3>Für Nutzer in Indonesien</h3>
+    <p>Diese Richtlinie entspricht dem UU PDP (Datenschutzgesetz). Sie haben das Recht auf Zugang, Berichtigung und Löschung Ihrer personenbezogenen Daten.</p>
+
+    <h3>Für Nutzer in Japan</h3>
+    <p>Diese Richtlinie entspricht dem APPI (Gesetz zum Schutz personenbezogener Informationen). Wir benötigen Ihre ausdrückliche Einwilligung, bevor wir nicht erforderliche Cookies setzen.</p>
+
+    <h3>Für Nutzer in China</h3>
+    <p>Diese Richtlinie entspricht dem PIPL (Datenschutzgesetz für personenbezogene Informationen). Grenzüberschreitende Datenübertragungen entsprechen den Zertifizierungsmaßnahmen für grenzüberschreitende Übertragungen personenbezogener Informationen, die am 1. Januar 2026 in Kraft treten.</p>
+
+    <h3>Für Nutzer in Russland</h3>
+    <p>Diese Richtlinie entspricht dem Bundesgesetz 152-FZ. Personenbezogene Daten russischer Bürger werden auf Servern in Russland gespeichert. Die Einwilligung zur Datenverarbeitung wird separat eingeholt.</p>
 
     <h2>11. Aktualisierungen dieser Richtlinie</h2>
     <p>Wir können diese Datenschutzerklärung aktualisieren. Die fortgesetzte Nutzung der App bedeutet die Akzeptanz von Änderungen.</p>
@@ -172,7 +221,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 Stundenplan-Verwaltungs-App. Alle Rechte vorbehalten.
+        © <span class="copyright-year">2026</span> Stundenplan-Verwaltungs-App. Alle Rechte vorbehalten.
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

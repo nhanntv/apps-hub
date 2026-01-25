@@ -25,15 +25,35 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .warning { background-color: #3e2723; border-left-color: #ff9800; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>Kebijakan Privasi</h1>
-    <p class="last-updated">Terakhir diperbarui: Oktober 2025</p>
+    <p class="last-updated">Berlaku sejak: Februari 2026</p>
 
     <div class="highlight">
         <strong>Kebijakan Privasi Aplikasi Manajemen Jadwal Kelas</strong><br>
@@ -153,15 +173,43 @@
     </ul>
 
     <h2>10. Kepatuhan Regional</h2>
-    
+
     <h3>Untuk Pengguna Vietnam</h3>
-    <p>Kebijakan ini mematuhi Dekrit 13/2023/ND-CP tentang perlindungan data pribadi.</p>
+    <p>Kebijakan ini mematuhi Undang-Undang Perlindungan Data Pribadi No. 91/2025/QH15, berlaku efektif 1 Januari 2026, dan Dekrit 13/2023/ND-CP tentang perlindungan data pribadi.</p>
+    <p>Hak Anda meliputi:</p>
+    <ul>
+        <li>Persetujuan terpisah untuk setiap tujuan pemrosesan data (persetujuan terperinci)</li>
+        <li>Hak untuk mencabut persetujuan kapan saja</li>
+        <li>Hak untuk menolak pelacakan (Do Not Track)</li>
+        <li>Pemberitahuan dalam waktu 72 jam jika terjadi pelanggaran data</li>
+    </ul>
 
     <h3>Untuk Pengguna UE</h3>
     <p>Kebijakan ini mematuhi GDPR. Anda memiliki hak tambahan di bawah Pasal 15-22 GDPR.</p>
 
     <h3>Untuk Pengguna California</h3>
     <p>Kebijakan ini mematuhi CCPA. Anda memiliki hak tambahan di bawah California Consumer Privacy Act.</p>
+
+    <h3>Untuk Pengguna Korea Selatan</h3>
+    <p>Kebijakan ini mematuhi PIPA (Personal Information Protection Act). Mulai Maret 2025, Anda memiliki hak untuk meminta portabilitas data dalam format yang aman dan dapat dibaca mesin.</p>
+
+    <h3>Untuk Pengguna Malaysia</h3>
+    <p>Kebijakan ini mematuhi PDPA (Personal Data Protection Act). Kami telah menunjuk Petugas Perlindungan Data dan akan memberi tahu Anda dalam waktu 72 jam jika terjadi pelanggaran data yang mempengaruhi Anda.</p>
+
+    <h3>Untuk Pengguna Thailand</h3>
+    <p>Kebijakan ini mematuhi PDPA (Personal Data Protection Act). Anda memiliki hak untuk mengakses, memperbaiki, menghapus, keberatan terhadap pemrosesan, membatasi pemrosesan, dan memindahkan data Anda.</p>
+
+    <h3>Untuk Pengguna Indonesia</h3>
+    <p>Kebijakan ini mematuhi UU PDP (Undang-Undang Perlindungan Data Pribadi). Anda memiliki hak untuk mengakses, memperbaiki, dan menghapus data pribadi Anda.</p>
+
+    <h3>Untuk Pengguna Jepang</h3>
+    <p>Kebijakan ini mematuhi APPI (Act on the Protection of Personal Information). Kami memerlukan persetujuan eksplisit Anda sebelum menempatkan cookie non-esensial.</p>
+
+    <h3>Untuk Pengguna China</h3>
+    <p>Kebijakan ini mematuhi PIPL (Personal Information Protection Law). Transfer data lintas batas mematuhi Langkah-langkah Sertifikasi Transfer Lintas Batas Informasi Pribadi, berlaku efektif 1 Januari 2026.</p>
+
+    <h3>Untuk Pengguna Rusia</h3>
+    <p>Kebijakan ini mematuhi Undang-Undang Federal 152-FZ. Data pribadi warga negara Rusia disimpan di server di Rusia. Persetujuan pemrosesan data diperoleh secara terpisah.</p>
 
     <h2>11. Pembaruan pada Kebijakan Ini</h2>
     <p>Kami dapat memperbarui kebijakan privasi ini. Penggunaan berkelanjutan dari aplikasi menunjukkan penerimaan terhadap perubahan.</p>
@@ -174,7 +222,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 Aplikasi Manajemen Jadwal Kelas. Semua hak dilindungi.
+        © <span class="copyright-year">2026</span> Aplikasi Manajemen Jadwal Kelas. Semua hak dilindungi.
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

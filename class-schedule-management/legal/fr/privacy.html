@@ -25,15 +25,35 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .warning { background-color: #3e2723; border-left-color: #ff9800; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>Politique de Confidentialité</h1>
-    <p class="last-updated">Dernière mise à jour : Octobre 2025</p>
+    <p class="last-updated">En vigueur à partir de : Février 2026</p>
 
     <div class="highlight">
         <strong>Politique de Confidentialité de l'Application de Gestion d'Emploi du Temps</strong><br>
@@ -153,15 +173,43 @@
     </ul>
 
     <h2>10. Conformité Régionale</h2>
-    
+
     <h3>Pour les Utilisateurs Vietnamiens</h3>
-    <p>Cette politique est conforme au Décret 13/2023/ND-CP sur la protection des données personnelles.</p>
+    <p>Cette politique est conforme à la Loi sur la Protection des Données Personnelles n° 91/2025/QH15, en vigueur depuis le 1er janvier 2026, et au Décret 13/2023/ND-CP sur la protection des données personnelles.</p>
+    <p>Vos droits comprennent :</p>
+    <ul>
+        <li>Consentement séparé pour chaque finalité de traitement des données (consentement granulaire)</li>
+        <li>Droit de retirer le consentement à tout moment</li>
+        <li>Droit de refuser le suivi (Do Not Track)</li>
+        <li>Notification dans les 72 heures en cas de violation de données</li>
+    </ul>
 
     <h3>Pour les Utilisateurs de l'UE</h3>
     <p>Cette politique est conforme au RGPD. Vous avez des droits supplémentaires sous les articles 15-22 du RGPD.</p>
 
     <h3>Pour les Utilisateurs de Californie</h3>
     <p>Cette politique est conforme au CCPA. Vous avez des droits supplémentaires sous le California Consumer Privacy Act.</p>
+
+    <h3>Pour les Utilisateurs de Corée du Sud</h3>
+    <p>Cette politique est conforme à la PIPA (Loi sur la Protection des Informations Personnelles). Depuis mars 2025, vous avez le droit de demander la portabilité des données dans un format sécurisé et lisible par machine.</p>
+
+    <h3>Pour les Utilisateurs de Malaisie</h3>
+    <p>Cette politique est conforme à la PDPA (Loi sur la Protection des Données Personnelles). Nous avons désigné un Délégué à la Protection des Données et vous notifierons dans les 72 heures en cas de violation de données vous concernant.</p>
+
+    <h3>Pour les Utilisateurs de Thaïlande</h3>
+    <p>Cette politique est conforme à la PDPA (Loi sur la Protection des Données Personnelles). Vous avez le droit d'accéder, rectifier, supprimer, vous opposer au traitement, limiter le traitement et transférer vos données.</p>
+
+    <h3>Pour les Utilisateurs d'Indonésie</h3>
+    <p>Cette politique est conforme à la UU PDP (Loi sur la Protection des Données Personnelles). Vous avez le droit d'accéder, rectifier et supprimer vos données personnelles.</p>
+
+    <h3>Pour les Utilisateurs du Japon</h3>
+    <p>Cette politique est conforme à l'APPI (Loi sur la Protection des Informations Personnelles). Nous exigeons votre consentement explicite avant de placer des cookies non essentiels.</p>
+
+    <h3>Pour les Utilisateurs de Chine</h3>
+    <p>Cette politique est conforme à la PIPL (Loi sur la Protection des Informations Personnelles). Les transferts de données transfrontaliers sont conformes aux Mesures de Certification pour le Transfert Transfrontalier d'Informations Personnelles, en vigueur depuis le 1er janvier 2026.</p>
+
+    <h3>Pour les Utilisateurs de Russie</h3>
+    <p>Cette politique est conforme à la Loi fédérale 152-FZ. Les données personnelles des citoyens russes sont stockées sur des serveurs en Russie. Le consentement au traitement des données est obtenu séparément.</p>
 
     <h2>11. Mises à Jour de Cette Politique</h2>
     <p>Nous pouvons mettre à jour cette politique de confidentialité. L'utilisation continue de l'application indique l'acceptation des changements.</p>
@@ -174,7 +222,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 Application de Gestion d'Emploi du Temps. Tous droits réservés.
+        © <span class="copyright-year">2026</span> Application de Gestion d'Emploi du Temps. Tous droits réservés.
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

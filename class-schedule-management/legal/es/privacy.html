@@ -24,14 +24,35 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>Política de Privacidad</h1>
-    <p class="last-updated">Última actualización: Octubre 2025</p>
+    <p class="last-updated">Efectivo desde: Febrero de 2026</p>
 
     <div class="highlight">
         <strong>Política de Privacidad de la App de Gestión de Horarios de Clases</strong><br>
@@ -151,15 +172,43 @@
     </ul>
 
     <h2>10. Cumplimiento Regional</h2>
-    
+
     <h3>Para Usuarios de Vietnam</h3>
-    <p>Esta política cumple con el Decreto 13/2023/ND-CP sobre protección de datos personales.</p>
+    <p>Esta política cumple con la Ley de Protección de Datos Personales N° 91/2025/QH15, vigente desde el 1 de enero de 2026, y el Decreto 13/2023/ND-CP sobre protección de datos personales.</p>
+    <p>Sus derechos incluyen:</p>
+    <ul>
+        <li>Consentimiento separado para cada propósito de procesamiento de datos (consentimiento granular)</li>
+        <li>Derecho a retirar el consentimiento en cualquier momento</li>
+        <li>Derecho a optar por no ser rastreado (Do Not Track)</li>
+        <li>Notificación dentro de 72 horas en caso de violación de datos</li>
+    </ul>
 
     <h3>Para Usuarios de la UE</h3>
     <p>Esta política cumple con el RGPD. Tiene derechos adicionales bajo los Artículos 15-22 del RGPD.</p>
 
     <h3>Para Usuarios de California</h3>
     <p>Esta política cumple con la CCPA. Tiene derechos adicionales bajo la Ley de Privacidad del Consumidor de California.</p>
+
+    <h3>Para Usuarios de Corea del Sur</h3>
+    <p>Esta política cumple con la PIPA (Ley de Protección de Información Personal). A partir de marzo de 2025, tiene el derecho de solicitar la portabilidad de datos en un formato seguro y legible por máquina.</p>
+
+    <h3>Para Usuarios de Malasia</h3>
+    <p>Esta política cumple con la PDPA (Ley de Protección de Datos Personales). Hemos designado un Oficial de Protección de Datos y le notificaremos dentro de 72 horas en caso de una violación de datos que le afecte.</p>
+
+    <h3>Para Usuarios de Tailandia</h3>
+    <p>Esta política cumple con la PDPA (Ley de Protección de Datos Personales). Tiene derecho a acceder, rectificar, eliminar, oponerse al procesamiento, restringir el procesamiento y portar sus datos.</p>
+
+    <h3>Para Usuarios de Indonesia</h3>
+    <p>Esta política cumple con la UU PDP (Ley de Protección de Datos Personales). Tiene derecho a acceder, rectificar y eliminar sus datos personales.</p>
+
+    <h3>Para Usuarios de Japón</h3>
+    <p>Esta política cumple con la APPI (Ley de Protección de Información Personal). Requerimos su consentimiento explícito antes de colocar cookies no esenciales.</p>
+
+    <h3>Para Usuarios de China</h3>
+    <p>Esta política cumple con la PIPL (Ley de Protección de Información Personal). Las transferencias de datos transfronterizas cumplen con las Medidas de Certificación para la Transferencia Transfronteriza de Información Personal, vigentes desde el 1 de enero de 2026.</p>
+
+    <h3>Para Usuarios de Rusia</h3>
+    <p>Esta política cumple con la Ley Federal 152-FZ. Los datos personales de ciudadanos rusos se almacenan en servidores en Rusia. El consentimiento para el procesamiento de datos se obtiene por separado.</p>
 
     <h2>11. Actualizaciones de Esta Política</h2>
     <p>Podemos actualizar esta política de privacidad. El uso continuado de la app indica la aceptación de los cambios.</p>
@@ -172,7 +221,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 App de Gestión de Horarios de Clases. Todos los derechos reservados.
+        © <span class="copyright-year">2026</span> App de Gestión de Horarios de Clases. Todos los derechos reservados.
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

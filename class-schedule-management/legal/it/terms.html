@@ -25,15 +25,44 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .warning { background-color: #3e2723; border-left-color: #ff9800; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>Termini e Condizioni</h1>
-    <p class="last-updated">Ultimo aggiornamento: Ottobre 2025</p>
+    <p class="last-updated">Efficace dal: Febbraio 2026</p>
 
     <div class="highlight">
         <strong>Termini di Servizio dell'App Gestione Orario Lezioni</strong><br>
@@ -144,7 +173,7 @@
     <ul>
         <li>La tua privacy è importante per noi</li>
         <li>Si prega di rivedere la nostra Politica sulla Privacy per informazioni dettagliate</li>
-        <li>Ci conformiamo alle leggi applicabili sulla protezione dei dati (GDPR, CCPA, Decreto Vietnam 13/2023)</li>
+        <li>Ci conformiamo alle leggi applicabili sulla protezione dei dati (GDPR, CCPA, Legge vietnamita sulla Protezione dei Dati Personali 91/2025 e Decreto 13/2023)</li>
         <li>Acconsenti al trattamento dei dati come descritto nella nostra Politica sulla Privacy</li>
     </ul>
 
@@ -217,6 +246,7 @@
     <ul>
         <li>Codice Civile 2015</li>
         <li>Legge sulla Protezione del Consumatore 2010</li>
+        <li>Legge sulla Protezione dei Dati Personali n. 91/2025/QH15 (efficace dal 1° gennaio 2026)</li>
         <li>Decreto 13/2023/ND-CP sulla Protezione dei Dati Personali</li>
     </ul>
 
@@ -254,7 +284,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 App Gestione Orario Lezioni. Tutti i diritti riservati.
+        © <span class="copyright-year">2026</span> App Gestione Orario Lezioni. Tutti i diritti riservati.
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

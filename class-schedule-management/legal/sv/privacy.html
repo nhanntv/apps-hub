@@ -24,14 +24,35 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>Integritetspolicy</h1>
-    <p class="last-updated">Senast uppdaterad: oktober 2025</p>
+    <p class="last-updated">Gäller från: Februari 2026</p>
 
     <div class="highlight">
         <strong>Integritetspolicy för Schemahanteringsappen</strong><br>
@@ -150,16 +171,44 @@
         <li>Reklamdata: Enligt AdMob-policyer</li>
     </ul>
 
-    <h2>10. Regional efterlevnad</h2>
-    
-    <h3>För svenska användare</h3>
-    <p>Denna policy följer GDPR (Dataskyddsförordningen). Du har ytterligare rättigheter under artiklarna 15-22 i GDPR.</p>
+    <h2>10. Regional Efterlevnad</h2>
+
+    <h3>För Vietnamesiska Användare</h3>
+    <p>Denna policy överensstämmer med Lagen om Skydd av Personuppgifter nr 91/2025/QH15, som träder i kraft den 1 januari 2026, och Dekret 13/2023/ND-CP om skydd av personuppgifter.</p>
+    <p>Dina rättigheter inkluderar:</p>
+    <ul>
+        <li>Separat samtycke för varje databehandlingsändamål (detaljerat samtycke)</li>
+        <li>Rätt att återkalla samtycke när som helst</li>
+        <li>Rätt att välja bort spårning (Do Not Track)</li>
+        <li>Meddelande inom 72 timmar vid dataintrång</li>
+    </ul>
 
     <h3>För EU-användare</h3>
-    <p>Denna policy följer GDPR. Du har ytterligare rättigheter under artiklarna 15-22 i GDPR.</p>
+    <p>Denna policy överensstämmer med GDPR. Du har ytterligare rättigheter enligt artiklarna 15-22 i GDPR.</p>
 
-    <h3>För kaliforniska användare</h3>
-    <p>Denna policy följer CCPA. Du har ytterligare rättigheter under California Consumer Privacy Act.</p>
+    <h3>För Användare i Kalifornien</h3>
+    <p>Denna policy överensstämmer med CCPA. Du har ytterligare rättigheter enligt California Consumer Privacy Act.</p>
+
+    <h3>För Användare i Sydkorea</h3>
+    <p>Denna policy överensstämmer med PIPA (Personal Information Protection Act). Från och med mars 2025 har du rätt att begära dataportabilitet i ett säkert, maskinläsbart format.</p>
+
+    <h3>För Användare i Malaysia</h3>
+    <p>Denna policy överensstämmer med PDPA (Personal Data Protection Act). Vi har utsett en Dataskyddsombud och kommer att meddela dig inom 72 timmar vid dataintrång som berör dig.</p>
+
+    <h3>För Användare i Thailand</h3>
+    <p>Denna policy överensstämmer med PDPA (Personal Data Protection Act). Du har rätt att få tillgång till, rätta, radera, invända mot behandling, begränsa behandling och överföra dina data.</p>
+
+    <h3>För Användare i Indonesien</h3>
+    <p>Denna policy överensstämmer med UU PDP (Lag om Skydd av Personuppgifter). Du har rätt att få tillgång till, rätta och radera dina personuppgifter.</p>
+
+    <h3>För Användare i Japan</h3>
+    <p>Denna policy överensstämmer med APPI (Act on the Protection of Personal Information). Vi kräver ditt uttryckliga samtycke innan icke-nödvändiga cookies placeras.</p>
+
+    <h3>För Användare i Kina</h3>
+    <p>Denna policy överensstämmer med PIPL (Personal Information Protection Law). Gränsöverskridande dataöverföringar följer Certifieringsåtgärder för Gränsöverskridande Överföring av Personlig Information, som träder i kraft den 1 januari 2026.</p>
+
+    <h3>För Användare i Ryssland</h3>
+    <p>Denna policy överensstämmer med Federal Lag 152-FZ. Personuppgifter för ryska medborgare lagras på servrar i Ryssland. Samtycke till databehandling inhämtas separat.</p>
 
     <h2>11. Uppdateringar av denna policy</h2>
     <p>Vi kan uppdatera denna integritetspolicy. Fortsatt användning av appen indikerar acceptans av ändringar.</p>
@@ -172,7 +221,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 Schemahanteringsapp. Alla rättigheter förbehållna.
+        © <span class="copyright-year">2026</span> Schemahanteringsapp. Alla rättigheter förbehållna.
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

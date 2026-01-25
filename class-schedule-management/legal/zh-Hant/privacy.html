@@ -24,14 +24,35 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>隱私政策</h1>
-    <p class="last-updated">最後更新：2025年10月</p>
+    <p class="last-updated">生效日期：2026年2月</p>
 
     <div class="highlight">
         <strong>課程表管理應用程式隱私政策</strong><br>
@@ -151,15 +172,43 @@
     </ul>
 
     <h2>10. 地區合規</h2>
-    
+
     <h3>越南使用者</h3>
-    <p>本政策符合關於個人資料保護的第 13/2023/ND-CP 號法令。</p>
+    <p>本政策符合《個人資料保護法》第91/2025/QH15號（自2026年1月1日起生效）和關於個人資料保護的第13/2023/ND-CP號法令。</p>
+    <p>您的權利包括：</p>
+    <ul>
+        <li>針對每個資料處理目的的個別同意（細分同意）</li>
+        <li>隨時撤回同意的權利</li>
+        <li>拒絕追蹤的權利（Do Not Track）</li>
+        <li>發生資料洩露時72小時內通知</li>
+    </ul>
 
     <h3>歐盟使用者</h3>
     <p>本政策符合 GDPR。您在 GDPR 第 15-22 條下享有額外權利。</p>
 
     <h3>加州使用者</h3>
     <p>本政策符合 CCPA。您在加州消費者隱私法下享有額外權利。</p>
+
+    <h3>南韓使用者</h3>
+    <p>本政策符合PIPA（個人資訊保護法）。自2025年3月起，您有權以安全、機器可讀的格式要求資料可攜性。</p>
+
+    <h3>馬來西亞使用者</h3>
+    <p>本政策符合PDPA（個人資料保護法）。我們已任命資料保護長，並將在發生影響您的資料洩露時在72小時內通知您。</p>
+
+    <h3>泰國使用者</h3>
+    <p>本政策符合PDPA（個人資料保護法）。您有權存取、更正、刪除、反對處理、限制處理和轉移您的資料。</p>
+
+    <h3>印尼使用者</h3>
+    <p>本政策符合UU PDP（個人資料保護法）。您有權存取、更正和刪除您的個人資料。</p>
+
+    <h3>日本使用者</h3>
+    <p>本政策符合APPI（個人資訊保護法）。我們在放置非必要Cookie之前需要您的明確同意。</p>
+
+    <h3>中國使用者</h3>
+    <p>本政策符合PIPL（個人資訊保護法）。跨境資料傳輸符合《個人資訊跨境傳輸認證措施》，自2026年1月1日起生效。</p>
+
+    <h3>俄羅斯使用者</h3>
+    <p>本政策符合聯邦法律152-FZ。俄羅斯公民的個人資料儲存在俄羅斯境內的伺服器上。資料處理同意單獨取得。</p>
 
     <h2>11. 本政策的更新</h2>
     <p>我們可能會更新此隱私政策。繼續使用應用程式表示您接受變更。</p>
@@ -172,7 +221,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 課程表管理應用程式。保留所有權利。
+        © <span class="copyright-year">2026</span> 課程表管理應用程式。保留所有權利。
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

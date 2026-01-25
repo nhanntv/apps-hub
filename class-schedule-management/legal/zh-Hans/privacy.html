@@ -24,14 +24,35 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>隐私政策</h1>
-    <p class="last-updated">最后更新：2025年10月</p>
+    <p class="last-updated">生效日期：2026年2月</p>
 
     <div class="highlight">
         <strong>课程表管理应用隐私政策</strong><br>
@@ -151,15 +172,43 @@
     </ul>
 
     <h2>10. 地区合规</h2>
-    
+
     <h3>越南用户</h3>
-    <p>本政策符合关于个人数据保护的第 13/2023/ND-CP 号法令。</p>
+    <p>本政策符合《个人数据保护法》第91/2025/QH15号（自2026年1月1日起生效）和关于个人数据保护的第13/2023/ND-CP号法令。</p>
+    <p>您的权利包括：</p>
+    <ul>
+        <li>针对每个数据处理目的的单独同意（细分同意）</li>
+        <li>随时撤回同意的权利</li>
+        <li>拒绝跟踪的权利（Do Not Track）</li>
+        <li>发生数据泄露时72小时内通知</li>
+    </ul>
 
     <h3>欧盟用户</h3>
     <p>本政策符合 GDPR。您在 GDPR 第 15-22 条下享有额外权利。</p>
 
     <h3>加州用户</h3>
     <p>本政策符合 CCPA。您在加州消费者隐私法下享有额外权利。</p>
+
+    <h3>韩国用户</h3>
+    <p>本政策符合PIPA（个人信息保护法）。自2025年3月起，您有权以安全、机器可读的格式要求数据可移植性。</p>
+
+    <h3>马来西亚用户</h3>
+    <p>本政策符合PDPA（个人数据保护法）。我们已任命数据保护官，并将在发生影响您的数据泄露时在72小时内通知您。</p>
+
+    <h3>泰国用户</h3>
+    <p>本政策符合PDPA（个人数据保护法）。您有权访问、更正、删除、反对处理、限制处理和转移您的数据。</p>
+
+    <h3>印度尼西亚用户</h3>
+    <p>本政策符合UU PDP（个人数据保护法）。您有权访问、更正和删除您的个人数据。</p>
+
+    <h3>日本用户</h3>
+    <p>本政策符合APPI（个人信息保护法）。我们在放置非必要cookie之前需要您的明确同意。</p>
+
+    <h3>中国用户</h3>
+    <p>本政策符合PIPL（个人信息保护法）。跨境数据传输符合《个人信息跨境传输认证措施》，自2026年1月1日起生效。</p>
+
+    <h3>俄罗斯用户</h3>
+    <p>本政策符合联邦法律152-FZ。俄罗斯公民的个人数据存储在俄罗斯境内的服务器上。数据处理同意单独获取。</p>
 
     <h2>11. 本政策的更新</h2>
     <p>我们可能会更新此隐私政策。继续使用应用表示您接受更改。</p>
@@ -172,7 +221,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 课程表管理应用。保留所有权利。
+        © <span class="copyright-year">2026</span> 课程表管理应用。保留所有权利。
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

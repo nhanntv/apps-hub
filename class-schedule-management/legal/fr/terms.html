@@ -25,15 +25,44 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .warning { background-color: #3e2723; border-left-color: #ff9800; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>Conditions de Service</h1>
-    <p class="last-updated">Dernière mise à jour : Octobre 2025</p>
+    <p class="last-updated">En vigueur à partir de : Février 2026</p>
 
     <div class="highlight">
         <strong>Conditions de Service de l'Application de Gestion d'Emploi du Temps</strong><br>
@@ -144,7 +173,7 @@
     <ul>
         <li>Votre vie privée est importante pour nous</li>
         <li>Veuillez consulter notre Politique de Confidentialité pour plus de détails</li>
-        <li>Nous respectons les lois applicables sur la protection des données (RGPD, CCPA, Décret vietnamien 13/2023)</li>
+        <li>Nous respectons les lois applicables sur la protection des données (RGPD, CCPA, Loi sur la Protection des Données Personnelles vietnamienne 91/2025 et Décret 13/2023)</li>
         <li>Vous consentez au traitement des données comme décrit dans notre Politique de Confidentialité</li>
     </ul>
 
@@ -217,6 +246,7 @@
     <ul>
         <li>Code Civil 2015</li>
         <li>Loi sur la Protection des Consommateurs 2010</li>
+        <li>Loi sur la Protection des Données Personnelles n° 91/2025/QH15 (en vigueur depuis le 1er janvier 2026)</li>
         <li>Décret 13/2023/ND-CP sur la Protection des Données Personnelles</li>
     </ul>
 
@@ -254,7 +284,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 Application de Gestion d'Emploi du Temps. Tous droits réservés.
+        © <span class="copyright-year">2026</span> Application de Gestion d'Emploi du Temps. Tous droits réservés.
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

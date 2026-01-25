@@ -24,14 +24,35 @@
             body { background-color: #1a1a1a; color: #e0e0e0; }
             h1 { color: #64b5f6; border-bottom-color: #42a5f5; }
             h2 { color: #90a4ae; }
-            .highlight { background-color: #263238; border-left-color: #42a5f5; }
-            .contact-info { background-color: #1b5e20; }
+            h3 { color: #7f8c8d; }
+
+            /* Fix: Boxes with proper text colors */
+            .highlight {
+                background-color: #263238;
+                border-left-color: #42a5f5;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span, .highlight br {
+                color: #e0e0e0 !important;
+            }
+
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Other elements */
+            ul, li { color: #e0e0e0; }
+            .last-updated { color: #90a4ae; }
         }
     </style>
 </head>
 <body>
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: October 2025</p>
+    <p class="last-updated">Effective from: February 2026</p>
 
     <div class="highlight">
         <strong>Class Schedule Management App Privacy Policy</strong><br>
@@ -151,15 +172,43 @@
     </ul>
 
     <h2>10. Regional Compliance</h2>
-    
+
     <h3>For Vietnam Users</h3>
-    <p>This policy complies with Decree 13/2023/ND-CP on personal data protection.</p>
+    <p>This policy complies with the Personal Data Protection Law No. 91/2025/QH15, effective January 1, 2026, and Decree 13/2023/ND-CP on personal data protection.</p>
+    <p>Your rights include:</p>
+    <ul>
+        <li>Separate consent for each data processing purpose (granular consent)</li>
+        <li>Right to withdraw consent at any time</li>
+        <li>Right to opt-out of tracking (Do Not Track)</li>
+        <li>Notification within 72 hours in case of data breach</li>
+    </ul>
 
     <h3>For EU Users</h3>
     <p>This policy complies with GDPR. You have additional rights under Articles 15-22 of the GDPR.</p>
 
     <h3>For California Users</h3>
     <p>This policy complies with CCPA. You have additional rights under the California Consumer Privacy Act.</p>
+
+    <h3>For South Korea Users</h3>
+    <p>This policy complies with PIPA (Personal Information Protection Act). As of March 2025, you have the right to request data portability in a secure, machine-readable format.</p>
+
+    <h3>For Malaysia Users</h3>
+    <p>This policy complies with PDPA (Personal Data Protection Act). We have appointed a Data Protection Officer and will notify you within 72 hours in case of data breach affecting you.</p>
+
+    <h3>For Thailand Users</h3>
+    <p>This policy complies with PDPA (Personal Data Protection Act). You have the right to access, rectify, delete, object to processing, restrict processing, and port your data.</p>
+
+    <h3>For Indonesia Users</h3>
+    <p>This policy complies with UU PDP (Personal Data Protection Law). You have the right to access, rectify, and delete your personal data.</p>
+
+    <h3>For Japan Users</h3>
+    <p>This policy complies with APPI (Act on the Protection of Personal Information). We require your explicit consent before placing non-essential cookies.</p>
+
+    <h3>For China Users</h3>
+    <p>This policy complies with PIPL (Personal Information Protection Law). Cross-border data transfers comply with the Cross-border Transfer of Personal Information Certification Measures, effective January 1, 2026.</p>
+
+    <h3>For Russia Users</h3>
+    <p>This policy complies with Federal Law 152-FZ. Personal data of Russian citizens is stored on servers in Russia. Data processing consent is obtained separately.</p>
 
     <h2>11. Updates to This Policy</h2>
     <p>We may update this privacy policy. Continued use of the app indicates acceptance of changes.</p>
@@ -172,7 +221,11 @@
 
     <hr>
     <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
-        © 2025 Class Schedule Management App. All rights reserved.
+        © <span class="copyright-year">2026</span> Class Schedule Management App. All rights reserved.
     </p>
+    <script>
+        // Auto-update copyright year
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
