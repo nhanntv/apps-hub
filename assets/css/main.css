@@ -398,8 +398,7 @@ body {
 
 /* ===== Footer ===== */
 footer {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
+    background: #202124;
     padding: 56px 0 24px;
 }
 
@@ -411,28 +410,28 @@ footer {
 }
 
 .footer-section h4 {
-    color: var(--text-primary);
+    color: rgba(255,255,255,0.45);
     margin-bottom: 16px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
 }
 
 .footer-section p {
-    color: var(--text-secondary);
+    color: rgba(255,255,255,0.7);
     font-size: 0.9rem;
     line-height: 1.8;
     margin-bottom: 2px;
 }
 
 .footer-section p strong {
-    color: var(--text-primary);
+    color: white;
     font-weight: 600;
 }
 
 .footer-role {
-    color: var(--text-muted) !important;
+    color: rgba(255,255,255,0.4) !important;
     font-size: 0.85rem !important;
 }
 
@@ -442,27 +441,26 @@ footer {
 
 .footer-section ul li {
     margin-bottom: 10px;
-    color: var(--text-secondary);
+    color: rgba(255,255,255,0.65);
     font-size: 0.9rem;
     line-height: 1.5;
 }
 
 .footer-section a {
-    color: var(--primary);
+    color: #8ab4f8;
     text-decoration: none;
     font-size: 0.9rem;
 }
 
 .footer-section a:hover {
-    color: var(--primary-dark);
-    text-decoration: underline;
+    color: white;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 24px;
-    border-top: 1px solid var(--border);
-    color: var(--text-muted);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.3);
     font-size: 0.85rem;
 }
 

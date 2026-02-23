@@ -3,335 +3,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Documents - Quản lý lịch học</title>
+    <title>Legal Documents — Class Schedule Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue: #4285F4;
+            --blue-dark: #1a73e8;
+            --blue-light: #e8f0fe;
+            --blue-mid: #d2e3fc;
+            --text: #202124;
+            --text-2: #5f6368;
+            --text-3: #9aa0a6;
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+            --border: #e8eaed;
+            --radius: 14px;
+            --radius-sm: 8px;
+            --radius-pill: 100px;
+            --shadow: 0 2px 8px rgba(0,0,0,0.07);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.10);
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
         }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+        /* ===== Header ===== */
+        .header {
+            background: linear-gradient(135deg, #4285F4 0%, #1a73e8 50%, #0d47a1 100%);
+            color: white;
+            padding: 56px 24px 44px;
+            text-align: center;
+            position: relative;
             overflow: hidden;
         }
-        
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .header p {
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-        
-        .content {
-            padding: 2rem;
-        }
-        
-        .language-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .language-card {
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            background: white;
-        }
-        
-        .language-card:hover {
-            border-color: #667eea;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.1);
-        }
-        
-        .language-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .flag {
-            font-size: 2rem;
-            margin-right: 0.75rem;
-        }
-        
-        .language-info h3 {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            margin-bottom: 0.25rem;
-        }
-        
-        .language-code {
-            color: #7f8c8d;
-            font-size: 0.85rem;
-            font-family: monospace;
-        }
-        
-        .links {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-        
-        .btn {
-            flex: 1;
-            padding: 0.6rem;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-terms {
-            background: #3498db;
-            color: white;
-        }
-        
-        .btn-terms:hover {
-            background: #2980b9;
-        }
-        
-        .btn-privacy {
-            background: #9b59b6;
-            color: white;
-        }
-        
-        .btn-privacy:hover {
-            background: #8e44ad;
-        }
-        
-        .coming-soon {
-            opacity: 0.5;
+
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.12) 0%, transparent 60%);
             pointer-events: none;
         }
-        
-        .coming-soon .btn {
-            background: #95a5a6;
+
+        .header-inner {
+            position: relative;
+            z-index: 1;
         }
-        
-        .badge {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            margin-left: 0.5rem;
-        }
-        
+
         .back-link {
             display: inline-flex;
             align-items: center;
-            color: white;
+            gap: 6px;
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
-            margin-bottom: 1rem;
-            opacity: 0.9;
+            font-size: 0.88rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            transition: color 0.2s;
         }
-        
-        .back-link:hover {
-            opacity: 1;
+
+        .back-link:hover { color: white; }
+
+        .header-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
         }
-        
-        @media (max-width: 768px) {
-            .language-grid {
-                grid-template-columns: 1fr;
-            }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1rem;
+        }
+
+        /* ===== Main Content ===== */
+        .main {
+            flex: 1;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 24px 64px;
+        }
+
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: 0.92rem;
+            color: var(--text-2);
+            margin-bottom: 32px;
+        }
+
+        /* ===== Language Grid ===== */
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .language-card {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .language-card:hover {
+            border-color: var(--blue);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .lang-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .flag {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .lang-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .lang-code {
+            font-size: 0.75rem;
+            color: var(--text-3);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            background: var(--bg);
+            padding: 2px 7px;
+            border-radius: 4px;
+        }
+
+        .lang-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            flex: 1;
+            padding: 9px 12px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: opacity 0.2s, transform 0.2s;
+            letter-spacing: 0.01em;
+        }
+
+        .lang-btn:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+
+        .btn-terms {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-privacy {
+            background: var(--blue-light);
+            color: var(--blue-dark);
+            border: 1.5px solid var(--blue-mid);
+        }
+
+        .btn-privacy:hover {
+            background: var(--blue-mid);
+        }
+
+        /* ===== Footer ===== */
+        .page-footer {
+            background: #202124;
+            color: rgba(255,255,255,0.7);
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #8ab4f8;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: white; }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 640px) {
+            .header h1 { font-size: 1.6rem; }
+            .language-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="../../" class="back-link">← Back to App Hub</a>
-            <h1>📚 Legal Documents</h1>
-            <p>Quản lý lịch học - Class Schedule Management</p>
-        </div>
-        
-        <div class="content">
-            <h2 style="color: #2c3e50; margin-bottom: 0.5rem;">Select Your Language</h2>
-            <p style="color: #7f8c8d;">Choose your preferred language to view our Terms & Conditions and Privacy Policy</p>
-            
-            <div class="language-grid">
-                <!-- English -->
-                <div class="language-card">
-                    <div class="language-header">
-                        <span class="flag">🇺🇸</span>
-                        <div class="language-info">
-                            <h3>English</h3>
-                            <span class="language-code">en</span>
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a href="en/terms.html" class="btn btn-terms">Terms</a>
-                        <a href="en/privacy.html" class="btn btn-privacy">Privacy</a>
-                    </div>
-                </div>
-                
-                <!-- Vietnamese -->
-                <div class="language-card">
-                    <div class="language-header">
-                        <span class="flag">🇻🇳</span>
-                        <div class="language-info">
-                            <h3>Tiếng Việt</h3>
-                            <span class="language-code">vi</span>
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a href="vi/terms.html" class="btn btn-terms">Điều khoản</a>
-                        <a href="vi/privacy.html" class="btn btn-privacy">Bảo mật</a>
-                    </div>
-                </div>
-                
-                <!-- Korean -->
-                <div class="language-card">
-                    <div class="language-header">
-                        <span class="flag">🇰🇷</span>
-                        <div class="language-info">
-                            <h3>한국어</h3>
-                            <span class="language-code">ko</span>
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a href="ko/terms.html" class="btn btn-terms">이용약관</a>
-                        <a href="ko/privacy.html" class="btn btn-privacy">개인정보</a>
-                    </div>
-                </div>
-                
-                <!-- Chinese Simplified -->
-                <div class="language-card">
-                    <div class="language-header">
-                        <span class="flag">🇨🇳</span>
-                        <div class="language-info">
-                            <h3>简体中文</h3>
-                            <span class="language-code">zh-CN</span>
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a href="zh-CN/terms.html" class="btn btn-terms">条款</a>
-                        <a href="zh-CN/privacy.html" class="btn btn-privacy">隐私</a>
-                    </div>
-                </div>
-                
-                <!-- Chinese Traditional -->
-                <div class="language-card">
-                    <div class="language-header">
-                        <span class="flag">🇹🇼</span>
-                        <div class="language-info">
-                            <h3>繁體中文</h3>
-                            <span class="language-code">zh-TW</span>
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a href="zh-TW/terms.html" class="btn btn-terms">條款</a>
-                        <a href="zh-TW/privacy.html" class="btn btn-privacy">隱私</a>
-                    </div>
-                </div>
-                
-                <!-- Indonesian -->
-                <div class="language-card">
-                    <div class="language-header">
-                        <span class="flag">🇮🇩</span>
-                        <div class="language-info">
-                            <h3>Bahasa Indonesia</h3>
-                            <span class="language-code">id</span>
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a href="id/terms.html" class="btn btn-terms">Syarat</a>
-                        <a href="id/privacy.html" class="btn btn-privacy">Privasi</a>
-                    </div>
-                </div>
-                
-                <!-- Thai -->
-                <div class="language-card">
-                    <div class="language-header">
-                        <span class="flag">🇹🇭</span>
-                        <div class="language-info">
-                            <h3>ภาษาไทย</h3>
-                            <span class="language-code">th</span>
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a href="th/terms.html" class="btn btn-terms">ข้อตกลง</a>
-                        <a href="th/privacy.html" class="btn btn-privacy">ความเป็นส่วนตัว</a>
-                    </div>
-                </div>
-                
-                <!-- Japanese -->
-                <div class="language-card">
-                    <div class="language-header">
-                        <span class="flag">🇯🇵</span>
-                        <div class="language-info">
-                            <h3>日本語</h3>
-                            <span class="language-code">ja</span>
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a href="ja/terms.html" class="btn btn-terms">利用規約</a>
-                        <a href="ja/privacy.html" class="btn btn-privacy">プライバシー</a>
-                    </div>
-                </div>
-                
-                <!-- French -->
-                <div class="language-card">
-                    <div class="language-header">
-                        <span class="flag">🇫🇷</span>
-                        <div class="language-info">
-                            <h3>Français</h3>
-                            <span class="language-code">fr</span>
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a href="fr/terms.html" class="btn btn-terms">Conditions</a>
-                        <a href="fr/privacy.html" class="btn btn-privacy">Confidentialité</a>
-                    </div>
-                </div>
-                
-                <!-- Spanish -->
-                <div class="language-card">
-                    <div class="language-header">
-                        <span class="flag">🇪🇸</span>
-                        <div class="language-info">
-                            <h3>Español</h3>
-                            <span class="language-code">es</span>
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a href="es/terms.html" class="btn btn-terms">Términos</a>
-                        <a href="es/privacy.html" class="btn btn-privacy">Privacidad</a>
-                    </div>
-                </div>
-            </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-inner">
+            <a href="../" class="back-link">← Back to App</a>
+            <div class="header-icon">📚</div>
+            <h1>Legal Documents</h1>
+            <p>Class Schedule Management — Terms &amp; Privacy Policy</p>
         </div>
     </div>
+
+    <!-- Main -->
+    <main class="main">
+        <p class="section-label">Available languages</p>
+        <h2 class="section-title">Choose your language</h2>
+        <p class="section-subtitle">Select a language to view the Terms of Service and Privacy Policy.</p>
+
+        <div class="language-grid">
+
+            <!-- English -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇺🇸</span>
+                    <div class="lang-info">
+                        <h3>English</h3>
+                        <span class="lang-code">en</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="en/terms.html" class="lang-btn btn-terms">Terms</a>
+                    <a href="en/privacy.html" class="lang-btn btn-privacy">Privacy</a>
+                </div>
+            </div>
+
+            <!-- Vietnamese -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇻🇳</span>
+                    <div class="lang-info">
+                        <h3>Tiếng Việt</h3>
+                        <span class="lang-code">vi</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="vi/terms.html" class="lang-btn btn-terms">Điều khoản</a>
+                    <a href="vi/privacy.html" class="lang-btn btn-privacy">Bảo mật</a>
+                </div>
+            </div>
+
+            <!-- Korean -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇰🇷</span>
+                    <div class="lang-info">
+                        <h3>한국어</h3>
+                        <span class="lang-code">ko</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="ko/terms.html" class="lang-btn btn-terms">이용약관</a>
+                    <a href="ko/privacy.html" class="lang-btn btn-privacy">개인정보</a>
+                </div>
+            </div>
+
+            <!-- Japanese -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇯🇵</span>
+                    <div class="lang-info">
+                        <h3>日本語</h3>
+                        <span class="lang-code">ja</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="ja/terms.html" class="lang-btn btn-terms">利用規約</a>
+                    <a href="ja/privacy.html" class="lang-btn btn-privacy">プライバシー</a>
+                </div>
+            </div>
+
+            <!-- Chinese Simplified -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇨🇳</span>
+                    <div class="lang-info">
+                        <h3>简体中文</h3>
+                        <span class="lang-code">zh-Hans</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="zh-Hans/terms.html" class="lang-btn btn-terms">条款</a>
+                    <a href="zh-Hans/privacy.html" class="lang-btn btn-privacy">隐私</a>
+                </div>
+            </div>
+
+            <!-- Chinese Traditional -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇹🇼</span>
+                    <div class="lang-info">
+                        <h3>繁體中文</h3>
+                        <span class="lang-code">zh-Hant</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="zh-Hant/terms.html" class="lang-btn btn-terms">條款</a>
+                    <a href="zh-Hant/privacy.html" class="lang-btn btn-privacy">隱私</a>
+                </div>
+            </div>
+
+            <!-- Indonesian -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇮🇩</span>
+                    <div class="lang-info">
+                        <h3>Bahasa Indonesia</h3>
+                        <span class="lang-code">id</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="id/terms.html" class="lang-btn btn-terms">Syarat</a>
+                    <a href="id/privacy.html" class="lang-btn btn-privacy">Privasi</a>
+                </div>
+            </div>
+
+            <!-- Malay -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇲🇾</span>
+                    <div class="lang-info">
+                        <h3>Bahasa Melayu</h3>
+                        <span class="lang-code">ms</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="ms/terms.html" class="lang-btn btn-terms">Terma</a>
+                    <a href="ms/privacy.html" class="lang-btn btn-privacy">Privasi</a>
+                </div>
+            </div>
+
+            <!-- Thai -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇹🇭</span>
+                    <div class="lang-info">
+                        <h3>ภาษาไทย</h3>
+                        <span class="lang-code">th</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="th/terms.html" class="lang-btn btn-terms">ข้อตกลง</a>
+                    <a href="th/privacy.html" class="lang-btn btn-privacy">ความเป็นส่วนตัว</a>
+                </div>
+            </div>
+
+            <!-- French -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇫🇷</span>
+                    <div class="lang-info">
+                        <h3>Français</h3>
+                        <span class="lang-code">fr</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="fr/terms.html" class="lang-btn btn-terms">Conditions</a>
+                    <a href="fr/privacy.html" class="lang-btn btn-privacy">Confidentialité</a>
+                </div>
+            </div>
+
+            <!-- Spanish -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇪🇸</span>
+                    <div class="lang-info">
+                        <h3>Español</h3>
+                        <span class="lang-code">es</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="es/terms.html" class="lang-btn btn-terms">Términos</a>
+                    <a href="es/privacy.html" class="lang-btn btn-privacy">Privacidad</a>
+                </div>
+            </div>
+
+            <!-- Italian -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇮🇹</span>
+                    <div class="lang-info">
+                        <h3>Italiano</h3>
+                        <span class="lang-code">it</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="it/terms.html" class="lang-btn btn-terms">Termini</a>
+                    <a href="it/privacy.html" class="lang-btn btn-privacy">Privacy</a>
+                </div>
+            </div>
+
+            <!-- Dutch -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇳🇱</span>
+                    <div class="lang-info">
+                        <h3>Nederlands</h3>
+                        <span class="lang-code">nl</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="nl/terms.html" class="lang-btn btn-terms">Voorwaarden</a>
+                    <a href="nl/privacy.html" class="lang-btn btn-privacy">Privacy</a>
+                </div>
+            </div>
+
+            <!-- Swedish -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇸🇪</span>
+                    <div class="lang-info">
+                        <h3>Svenska</h3>
+                        <span class="lang-code">sv</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="sv/terms.html" class="lang-btn btn-terms">Villkor</a>
+                    <a href="sv/privacy.html" class="lang-btn btn-privacy">Integritet</a>
+                </div>
+            </div>
+
+            <!-- Russian -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇷🇺</span>
+                    <div class="lang-info">
+                        <h3>Русский</h3>
+                        <span class="lang-code">ru</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="ru/terms.html" class="lang-btn btn-terms">Условия</a>
+                    <a href="ru/privacy.html" class="lang-btn btn-privacy">Конфиденц.</a>
+                </div>
+            </div>
+
+            <!-- German -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">🇩🇪</span>
+                    <div class="lang-info">
+                        <h3>Deutsch</h3>
+                        <span class="lang-code">de</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="de/terms.html" class="lang-btn btn-terms">Bedingungen</a>
+                    <a href="de/privacy.html" class="lang-btn btn-privacy">Datenschutz</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="footer-links">
+            <a href="../">← Back to App</a>
+            <a href="../../">App Hub</a>
+        </div>
+        <p class="footer-copy">&copy; 2025 Nhan Trinh. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
