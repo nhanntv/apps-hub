@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,145 +7,145 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Hero -->
     <header class="hero">
         <div class="container">
-            <h1>🚀 App Hub</h1>
-            <p class="tagline">Trung tâm thông tin và tài nguyên cho các ứng dụng</p>
+            <div class="hero-content">
+                <div class="hero-badge">👨‍💻 Developer Portfolio</div>
+                <h1>App Hub</h1>
+                <p class="tagline">A collection of apps and tools crafted with care</p>
+            </div>
         </div>
     </header>
 
+    <!-- Filter Navigation -->
     <nav class="filter-nav">
         <div class="container">
-            <button class="filter-btn active" data-filter="all">Tất cả</button>
+            <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
             <button class="filter-btn" data-filter="web">Web Apps</button>
             <button class="filter-btn" data-filter="tools">Tools</button>
         </div>
     </nav>
 
+    <!-- Apps Grid -->
     <main class="container">
         <div class="apps-grid">
+
             <!-- Class Schedule Management -->
-            <div class="app-card vertical" data-category="mobile">
+            <div class="app-card" data-category="mobile">
                 <div class="app-header">
-                    <img src="assets/images/class-schedule-icon.png" alt="Quản lý lịch học" class="app-icon-img">
+                    <img src="assets/images/class-schedule-icon.png" alt="Class Schedule Management" class="app-icon-img">
+                    <div class="app-badges">
+                        <span class="badge badge-ios">iOS</span>
+                        <span class="badge badge-android">Android</span>
+                    </div>
                 </div>
                 <div class="app-body">
-                    <h3>Quản lý lịch học</h3>
-                    <p class="app-description">Ứng dụng quản lý lịch học và thành viên lớp học thông minh. Hỗ trợ điểm danh, thống kê, xuất báo cáo và đồng bộ dữ liệu.</p>
-                    <div class="app-features">
-                        <span class="feature">📊 Thống kê chi tiết</span>
-                        <span class="feature">☁️ Đồng bộ Cloud</span>
-                        <span class="feature">📱 Đa nền tảng</span>
-                    </div>
-                    <div class="app-meta">
-                        <div class="platforms">
-                            <span class="badge badge-ios">iOS</span>
-                            <span class="badge badge-android">Android</span>
-                        </div>
+                    <div class="app-title-row">
+                        <h3>Class Schedule Management</h3>
                         <span class="version">v1.0.0</span>
+                    </div>
+                    <p class="app-description">Smart app for managing class schedules and student members. Supports attendance tracking, detailed statistics, report export, and multi-device cloud sync.</p>
+                    <div class="app-features">
+                        <span class="feature">📊 Analytics</span>
+                        <span class="feature">☁️ Cloud Sync</span>
+                        <span class="feature">📱 Multi-platform</span>
                     </div>
                 </div>
                 <div class="app-footer">
-                    <a href="class-schedule-management/" class="btn btn-primary btn-block">Chi tiết ứng dụng</a>
+                    <a href="class-schedule-management/" class="btn btn-primary btn-block">View Details</a>
                     <div class="app-links">
                         <a href="class-schedule-management/legal/" class="link-item">
                             <span>📜</span> Legal Docs
-                        </a>
-                        <a href="#" class="link-item">
-                            <span>🔒</span> Privacy
                         </a>
                     </div>
                 </div>
             </div>
 
             <!-- Expense Tracker Pro -->
-            <div class="app-card vertical coming-soon" data-category="web mobile">
+            <div class="app-card coming-soon" data-category="web mobile">
                 <div class="app-header">
-                    <div class="app-icon placeholder">
-                        💰
+                    <div class="app-icon placeholder">💰</div>
+                    <div class="app-badges">
+                        <span class="badge badge-web">Web</span>
+                        <span class="badge badge-mobile">Mobile</span>
                     </div>
                 </div>
                 <div class="app-body">
-                    <h3>Expense Tracker Pro</h3>
-                    <p class="app-description">Ứng dụng quản lý chi tiêu cá nhân thông minh với AI.</p>
+                    <div class="app-title-row">
+                        <h3>Expense Tracker Pro</h3>
+                        <span class="coming-soon-tag">Coming Soon</span>
+                    </div>
+                    <p class="app-description">Smart personal expense management with AI-powered insights and multi-currency support.</p>
                     <div class="app-features">
                         <span class="feature">🤖 AI Assistant</span>
-                        <span class="feature">📈 Phân tích chi tiêu</span>
-                        <span class="feature">💳 Đa loại tiền tệ</span>
-                    </div>
-                    <div class="app-meta">
-                        <div class="platforms">
-                            <span class="badge badge-web">Web</span>
-                            <span class="badge badge-mobile">Mobile</span>
-                        </div>
-                        <span class="version">Coming Soon</span>
+                        <span class="feature">📈 Analytics</span>
+                        <span class="feature">💳 Multi-currency</span>
                     </div>
                 </div>
                 <div class="app-footer">
-                    <button class="btn btn-disabled btn-block" disabled>Đang phát triển</button>
+                    <button class="btn btn-disabled btn-block" disabled>In Development</button>
                 </div>
             </div>
 
-            <!-- More apps placeholder -->
-            <div class="app-card vertical coming-soon" data-category="tools">
+            <!-- Developer Tools -->
+            <div class="app-card coming-soon" data-category="tools">
                 <div class="app-header">
-                    <div class="app-icon placeholder">
-                        🛠️
+                    <div class="app-icon placeholder">🛠️</div>
+                    <div class="app-badges">
+                        <span class="badge badge-tools">Tools</span>
                     </div>
                 </div>
                 <div class="app-body">
-                    <h3>Developer Tools</h3>
-                    <p class="app-description">Bộ công cụ hỗ trợ phát triển phần mềm.</p>
+                    <div class="app-title-row">
+                        <h3>Developer Tools</h3>
+                        <span class="coming-soon-tag">Coming Soon</span>
+                    </div>
+                    <p class="app-description">A curated toolkit for boosting software development productivity.</p>
                     <div class="app-features">
                         <span class="feature">⚡ Fast</span>
                         <span class="feature">🎯 Accurate</span>
                         <span class="feature">🔧 Customizable</span>
                     </div>
-                    <div class="app-meta">
-                        <div class="platforms">
-                            <span class="badge badge-tools">Tools</span>
-                        </div>
-                        <span class="version">Coming Soon</span>
-                    </div>
                 </div>
                 <div class="app-footer">
-                    <button class="btn btn-disabled btn-block" disabled>Đang phát triển</button>
+                    <button class="btn btn-disabled btn-block" disabled>In Development</button>
                 </div>
             </div>
+
         </div>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Về Developer</h4>
-                    <p>
-                        <strong>Nhan Trinh</strong><br>
-                        Full-stack Developer<br>
-                        Email: <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a><br>
-                        GitHub: <a href="https://github.com/nhanntv" target="_blank">@nhanntv</a>
-                    </p>
+                    <h4>About Developer</h4>
+                    <p><strong>Nhan Trinh</strong></p>
+                    <p class="footer-role">Full-stack Developer</p>
+                    <p>Email: <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
+                    <p>GitHub: <a href="https://github.com/nhanntv" target="_blank">@nhanntv</a></p>
                 </div>
                 <div class="footer-section">
-                    <h4>Công nghệ</h4>
+                    <h4>Technologies</h4>
                     <ul>
-                        <li>Flutter / Dart</li>
-                        <li>React / Next.js</li>
-                        <li>Node.js / Express</li>
+                        <li>Mobile: Flutter / Swift (iOS) / Kotlin (Android)</li>
+                        <li>Frontend: React / Next.js</li>
+                        <li>Backend: Node.js / Python</li>
                         <li>Firebase / Supabase</li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Liên kết</h4>
+                    <h4>Links</h4>
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Support</a></li>
+                        <li><a href="class-schedule-management/legal/">Privacy Policy</a></li>
+                        <li><a href="class-schedule-management/legal/">Terms of Service</a></li>
+                        <li><a href="#" id="support-link">Support</a></li>
                     </ul>
                 </div>
             </div>
@@ -154,6 +154,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- Support Modal -->
+    <div class="modal-overlay" id="support-modal">
+        <div class="modal">
+            <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-icon">💬</div>
+            <h3>Contact Support</h3>
+            <p>Have a question or need help? Feel free to reach out — I'm happy to assist!</p>
+            <a href="mailto:nhanntv113@gmail.com" class="btn btn-primary">
+                📧 nhanntv113@gmail.com
+            </a>
+        </div>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>

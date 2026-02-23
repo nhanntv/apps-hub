@@ -1,70 +1,75 @@
-// Filter functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ===== Filter functionality =====
     const filterBtns = document.querySelectorAll('.filter-btn');
     const appCards = document.querySelectorAll('.app-card');
 
     filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
+        btn.addEventListener('click', function () {
             filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
             this.classList.add('active');
 
             const filter = this.getAttribute('data-filter');
 
-            // Filter cards
             appCards.forEach(card => {
                 if (filter === 'all') {
                     card.classList.remove('hidden');
-                    card.style.display = 'flex';
                 } else {
                     const categories = card.getAttribute('data-category').split(' ');
                     if (categories.includes(filter)) {
                         card.classList.remove('hidden');
-                        card.style.display = 'flex';
                     } else {
                         card.classList.add('hidden');
-                        card.style.display = 'none';
                     }
                 }
             });
         });
     });
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    // ===== Support Modal =====
+    const supportLink = document.getElementById('support-link');
+    const supportModal = document.getElementById('support-modal');
+    const modalClose = document.getElementById('modal-close');
+
+    if (supportLink && supportModal) {
+        supportLink.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            supportModal.classList.add('active');
+        });
+
+        modalClose.addEventListener('click', function () {
+            supportModal.classList.remove('active');
+        });
+
+        supportModal.addEventListener('click', function (e) {
+            if (e.target === supportModal) {
+                supportModal.classList.remove('active');
             }
         });
-    });
 
-    // Add animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                supportModal.classList.remove('active');
+            }
+        });
+    }
 
-    const observer = new IntersectionObserver(function(entries) {
+    // ===== Scroll animation =====
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    // Observe all app cards with initial animation state
-    appCards.forEach(card => {
+    appCards.forEach((card, i) => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        card.style.transform = 'translateY(24px)';
+        card.style.transition = `opacity 0.45s ease ${i * 0.08}s, transform 0.45s ease ${i * 0.08}s`;
         observer.observe(card);
     });
+
 });
