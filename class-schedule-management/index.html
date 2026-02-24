@@ -375,11 +375,6 @@
             transform: scale(0.85);
         }
 
-        .screenshot-item:first-child {
-            opacity: 1;
-            transform: scale(1);
-        }
-
         .screenshot-item.active {
             opacity: 1;
             transform: scale(1);
@@ -690,20 +685,20 @@
             <button class="carousel-arrow prev" id="sc-prev" aria-label="Previous">&#8249;</button>
             <button class="carousel-arrow next" id="sc-next" aria-label="Next">&#8250;</button>
             <div class="screenshot-track" id="screenshot-track">
-                <div class="screenshot-item">
-                    <img src="images/sc01.png" alt="Class Schedule Management - Screenshot 1">
+                <div class="screenshot-item active">
+                    <img src="images/sc01.png" alt="Class Schedule Management - Screenshot 1" loading="eager">
                 </div>
                 <div class="screenshot-item">
-                    <img src="images/sc02.png" alt="Class Schedule Management - Screenshot 2">
+                    <img src="images/sc02.png" alt="Class Schedule Management - Screenshot 2" loading="lazy">
                 </div>
                 <div class="screenshot-item">
-                    <img src="images/sc03.png" alt="Class Schedule Management - Screenshot 3">
+                    <img src="images/sc03.png" alt="Class Schedule Management - Screenshot 3" loading="lazy">
                 </div>
                 <div class="screenshot-item">
-                    <img src="images/sc04.png" alt="Class Schedule Management - Screenshot 4">
+                    <img src="images/sc04.png" alt="Class Schedule Management - Screenshot 4" loading="lazy">
                 </div>
                 <div class="screenshot-item">
-                    <img src="images/sc05.png" alt="Class Schedule Management - Screenshot 5">
+                    <img src="images/sc05.png" alt="Class Schedule Management - Screenshot 5" loading="lazy">
                 </div>
             </div>
             <div class="screenshot-dots" id="screenshot-dots">
@@ -810,18 +805,25 @@
                 track.scrollLeft = startScroll - (e.pageX - startX) * 1.4;
             });
 
-            // Init after images load
+            // Init after first image loads (don't wait for all 5)
             function init() {
                 applyPadding();
                 scrollTo(0);
                 updateActive();
             }
 
-            if (document.readyState === 'complete') {
+            const firstImg = items[0] && items[0].querySelector('img');
+            if (firstImg && firstImg.complete) {
                 init();
+            } else if (firstImg) {
+                firstImg.addEventListener('load', init);
+                firstImg.addEventListener('error', init);
             } else {
-                window.addEventListener('load', init);
+                init();
             }
+
+            // Re-apply padding after all images load in case sizes shifted
+            window.addEventListener('load', applyPadding);
 
             window.addEventListener('resize', () => { applyPadding(); updateActive(); });
         })();
