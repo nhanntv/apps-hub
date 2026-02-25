@@ -755,7 +755,6 @@
             const prev  = document.getElementById('sc-prev');
             const next  = document.getElementById('sc-next');
 
-            // Set horizontal padding so first/last items can sit centered
             function applyPadding() {
                 if (!items.length) return;
                 const half = track.clientWidth / 2 - items[0].offsetWidth / 2;
@@ -780,36 +779,71 @@
                 dots.forEach((d, i)  => d.classList.toggle('active', i === idx));
             }
 
-            function scrollTo(i) {
+            function scrollTo(i, smooth) {
                 const el  = items[i];
                 const pos = el.offsetLeft + el.offsetWidth / 2 - track.clientWidth / 2;
-                track.scrollTo({ left: pos, behavior: 'smooth' });
+                track.scrollTo({ left: pos, behavior: smooth === false ? 'instant' : 'smooth' });
+            }
+
+            // ===== Auto-scroll =====
+            let autoTimer = null;
+
+            function startAuto() {
+                stopAuto();
+                autoTimer = setInterval(() => {
+                    const next = (getActiveIndex() + 1) % items.length;
+                    scrollTo(next);
+                }, 3000);
+            }
+
+            function stopAuto() {
+                clearInterval(autoTimer);
+                autoTimer = null;
+            }
+
+            function resetAuto() {
+                stopAuto();
+                startAuto();
             }
 
             track.addEventListener('scroll', updateActive, { passive: true });
-            dots.forEach((d, i) => d.addEventListener('click', () => scrollTo(i)));
 
-            if (prev) prev.addEventListener('click', () => scrollTo(Math.max(getActiveIndex() - 1, 0)));
-            if (next) next.addEventListener('click', () => scrollTo(Math.min(getActiveIndex() + 1, items.length - 1)));
+            dots.forEach((d, i) => d.addEventListener('click', () => { scrollTo(i); resetAuto(); }));
+
+            if (prev) prev.addEventListener('click', () => { scrollTo(Math.max(getActiveIndex() - 1, 0)); resetAuto(); });
+            if (next) next.addEventListener('click', () => { scrollTo(Math.min(getActiveIndex() + 1, items.length - 1)); resetAuto(); });
+
+            // Pause on hover / touch
+            track.addEventListener('mouseenter', stopAuto);
+            track.addEventListener('mouseleave', startAuto);
+            track.addEventListener('touchstart', stopAuto, { passive: true });
+            track.addEventListener('touchend', () => setTimeout(startAuto, 2000), { passive: true });
 
             // Mouse drag
             let dragging = false, startX = 0, startScroll = 0;
             track.addEventListener('mousedown', e => {
                 dragging = true; startX = e.pageX; startScroll = track.scrollLeft;
                 track.classList.add('grabbing');
+                stopAuto();
             });
-            window.addEventListener('mouseup', () => { dragging = false; track.classList.remove('grabbing'); });
+            window.addEventListener('mouseup', () => {
+                if (!dragging) return;
+                dragging = false;
+                track.classList.remove('grabbing');
+                setTimeout(startAuto, 2000);
+            });
             track.addEventListener('mousemove', e => {
                 if (!dragging) return;
                 e.preventDefault();
                 track.scrollLeft = startScroll - (e.pageX - startX) * 1.4;
             });
 
-            // Init after first image loads (don't wait for all 5)
+            // Init after first image loads — use instant scroll to avoid scroll-event race
             function init() {
                 applyPadding();
-                scrollTo(0);
+                scrollTo(0, false);
                 updateActive();
+                startAuto();
             }
 
             const firstImg = items[0] && items[0].querySelector('img');
